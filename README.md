@@ -7,8 +7,10 @@ A crawler for HUST phycics test online in python-2.7.12. (Not for cheating!)
     2.Run the script by typing 'ans.main()' and it will automatically download the keys in path "D:\TestAnswer.xls"(The default path can be changed in function 'saveAns()').
     3.The Excel file is formed by [*.jpg *] which can be seen in HTML source codes indicated the problem and the corresponding answer.
     
-    Tips: Remember to make sure you have connected to HUST-WILELESS or likewise, which is neccessary to connect to the ip address!
+    Tips:
+    Remember to make sure you have connected to HUST-WILELESS or likewise, which is neccessary to connect to the ip address!
     
-    Attention: This is a simple practice in crawler, which is only for study and communication. It should never be used for illegal or improper ways like cheating in the exam. If so, the one who did it is responsible for his own behavior instead of the author. The author strongly suggest that every student should follow the rules and the school should fix the bugs as sooner as possible!
+    Attention:
+    This is a simple practice in crawler, which is only for study and communication. It should never be used for illegal or improper ways like cheating in the exam. If so, the one who did it is responsible for his own behavior instead of the author. The author strongly suggest that every student should follow the rules and the school should fix the bugs as sooner as possible!
   
 Copyright (C) 2016 by Jerry Life. All Rights Reserved.
