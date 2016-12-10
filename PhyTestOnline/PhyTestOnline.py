@@ -72,7 +72,7 @@ class PhyTestOnline(object):
         for i in range(numOfProblems):
             sheet.write(i, 0, ansList[i][0])
             sheet.write(i, 1, ansList[i][1])
-            print "Line %d saved.%d%% Finished" % (i+1, (i+1)/numOfProblems)
+            print "Line %d saved.%d%% Finished" % (i+1, (i+1)*100/numOfProblems)
 
         # need protect?
         ans.protect = True
