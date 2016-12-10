@@ -38,13 +38,13 @@ class PhyTestOnline(object):
 
     def getText(self, url=None):
         textModel = re.compile('<td width="146">([0-9]+\.jpg)')
-        ansModel = re.compile('<td width="41">(.*)</td>')
+        ansModel = re.compile('<td width="41">(.+)</td>')
         html = self.getFirstPage(url)
         if not html:
             return None
         text = re.findall(textModel, html)
         ans = re.findall(ansModel, html)
-        if len(text) == len(ans):
+        if len(text) == len(ans) & len(zip(text, ans)) == len(ans):
             return zip(text, ans)
         else:
             print "Answer or picture lost!"
@@ -54,13 +54,10 @@ class PhyTestOnline(object):
         startPage = self.baseURL[0:-1]
         ansList = []
         for i in range(1, allPage+1):
-            url = startPage + chr(i)
+            url = startPage + str(i)
             ans = self.getText(url)
-            if not ans:
-                return None
-            else:
-                print "Page%d finished.%d%%" % (i, i*100/allPage)
-                ansList += ans
+            ansList += ans
+            print "Page%d finished.Got %d problems.%d%%" % (i, len(ansList), i*100/allPage)
         print "Program complete."
         return ansList
 
@@ -91,3 +88,6 @@ class PhyTestOnline(object):
         else:
             return None
         return True
+
+ans = PhyTestOnline()
+ans.main()
