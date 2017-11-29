@@ -6,6 +6,8 @@ import urllib2
 import re
 import xlwt
 
+START_PAGE = 0  # start page
+ALL_PAGE = 82   # number of all pages
 
 class PhyTestOnline(object):
     """
@@ -16,7 +18,7 @@ class PhyTestOnline(object):
     It should never be used for illegal or improper ways like cheating. If so, the one who did it is
     responsible for his own behavior instead of the author.
     """
-    def __init__(self, baseURL="http://115.156.231.253/admin/menu/query/queryandchoose/xianshi?paperNum=1"):
+    def __init__(self, baseURL="http://115.156.215.236/admin/menu/query/queryandchoose/xianshi?paperNum=0"):
         self.baseURL = baseURL
 
     def getFirstPage(self, url=None):
@@ -50,10 +52,10 @@ class PhyTestOnline(object):
             print "Answer or picture lost!"
             return None
 
-    def getAll(self, allPage=70):
+    def getAll(self, allPage=ALL_PAGE):
         startPage = self.baseURL[0:-1]
         ansList = []
-        for i in range(1, allPage+1):
+        for i in range(START_PAGE, allPage+1):
             url = startPage + chr(i)
             ans = self.getText(url)
             if not ans:
@@ -91,3 +93,7 @@ class PhyTestOnline(object):
         else:
             return None
         return True
+
+
+ans = PhyTestOnline()
+ans.main()
