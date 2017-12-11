@@ -47,6 +47,7 @@ class PhyTestOnline(object):
         text = re.findall(textModel, html)
         ans = re.findall(ansModel, html)
         if len(text) == len(ans):
+            print "%d Got" % len(ans)
             return zip(text, ans)
         else:
             print "Answer or picture lost!"
@@ -56,10 +57,10 @@ class PhyTestOnline(object):
         startPage = self.baseURL[0:-1]
         ansList = []
         for i in range(START_PAGE, allPage+1):
-            url = startPage + chr(i)
+            url = startPage + str(i)
             ans = self.getText(url)
             if not ans:
-                return None
+                pass
             else:
                 print "Page%d finished.%d%%" % (i, i*100/allPage)
                 ansList += ans
